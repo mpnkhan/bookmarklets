@@ -7,15 +7,21 @@
     <meta name="description" content="Some Bookmarks I have">
     <meta name="author" content="Nawaz">
 
-    <title>Favourite Bookmarksm</title>
+    <title>Favourite Bookmarklets</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+      .list{
+        font-size: 1.5em;
+        line-height: 2em;
+      }
+    </style>
   </head>
 
   <body>
     <section>
-      <h1>Few Book marks</h1>
-      <ol>
+      <h1>A11Y  Bookmarklets</h1>
+      <ol class="list">
         <li>
           <a href='javascript:(function(){var ua=navigator.userAgent.toLowerCase(),ie=ua.indexOf("msie")!=-1?ua.substr(ie+5,1):0,outlineProp=ie<8?"border":"outline",activeItem;function styleFocus(e){if(activeItem){activeItem.style[outlineProp]="";}activeItem=e.target||e.srcElement;if(activeItem){activeItem.style[outlineProp]="solid 2px red";}}if(document.addEventListener){document.addEventListener("focus",styleFocus,true);}else{document.attachEvent("onfocusin",styleFocus);}}());'>Show Tab Focus</a>
         </li>
@@ -23,22 +29,42 @@
           <a href="javascript:(function(){logfocus={init:function(){var that=this;if(document.body){document.body.onfocusin=function(e){that.windowFocus(e);};}if(window.addEventListener){window.addEventListener('focus',function(e){that.windowFocus(e);},true);}},windowFocus:function(e){var evt=e||window.event;var tgt=evt.target||evt.srcElement;this.log(tgt);},log:function(o){if(window.console&&window.console.log){window.console.log('focus:');if(console.provider&&console.provider=='Companion.JS'){if(o.nodeName){window.console.log(this.buildMarkup(o));}else{window.console.log(o);}}else{window.console.log(o);}}else if(window.opera&&opera.postError){opera.postError('focus:');if(o.nodeName){opera.postError(this.buildMarkup(o));}else{opera.postError(o);}}},buildMarkup:function(o){var output='<';output+=o.nodeName.toLowerCase();output+=this.getPropMarkup(o,'id');output+=this.getPropMarkup(o,'class');output+=this.getPropMarkup(o,'href');output+=this.getPropMarkup(o,'type');output+=this.getPropMarkup(o,'value');output+='>';return output;},getPropMarkup:function(o,prop){if(o[prop]){return ' '+prop+'='+o[prop];}else{return '';}}};logfocus.init();})();">Log Focus</a>
         </li>
 
-        <li>
-          <a href="javascript:(function(){var elms = document.getElementsByTagName('p');var pane= document.createElement('dialog');var myHtml = '';for(i=0, j=elms.length;i<j; i++){myHtml+= elms[i].outerHTML }pane.style.cssText='z-index: 50000;background-color: #f9f1f1;';document.body.insertBefore(pane, document.body.children[0]);pane.innerHTML = myHtml;pane.showModal();})();">HBR</a>
-        </li>
-
-        <li>
-          <a href="javascript:(function(){document.getElementById('rightCol').style.display='none';document.getElementById('contentArea').style.width='960px';document.getElementById('pagelet_sidebar').style.display='none';document.getElementsByClassName('_5pcb')[0].setAttribute('style','margin-left:50px;width:900px')})();">Facebook</a>
-        </li>        
+     
         <li>
           <a href="javascript:var%20g=document.images;var%20s='';var%20n=0;for%20(i=0;i<g.length;i++){if%20(g[i].alt.length==0){s+='<tr>';s+='<td><img%20src='+g[i].src+'><br>'+g[i].src+'</td>';s+='</tr>';n+=1;}}if%20(n!=0){s='<b>Missing%20alt%20attributes:%20'+location.href+'</b><table%20border=1%20style=\'font:x-small%20verdana\'><tr><th>Image</th></tr>'+s+'</table>';var%20mw=window.open('','mw','');mw.document.open();mw.document.write(s);mw.document.close();}else{alert('No%20images%20are%20missing%20alts%20in%20this%20document');}">
             Missing alt attribute</a>
         </li>
+
         <li>
           <a href="javascript:var l=document.links.length;var s='';for (i=0;i<l;i++){var lk=document.links[i];s+='<tr valign=top>';s+='<td>' + lk.innerHTML + '</td>';s+='<td>' + lk.title + '</td>';s+='<td><a href='+lk.href+'>' + lk.href + '</a></td>';s+='</tr>';}s='Links for: '+document.location.href+'<table border=1 style=\'font:x-small verdana\'><tr valign=top><th>Text</th><th>Title</th><th>URL</th></tr>'+s+'</table>';var lw=window.open('', 'lw', '');lw.document.open();lw.document.write(s);lw.document.close();">
             Links</a>
         </li>
 
+        <li>
+    
+
+<a href="javascript:var escape = document.createElement('textarea');function escapeHTML(html) {escape.textContent = html;return escape.innerHTML;}
+let headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');let result='<table><tr><th>Tag</th><th>InnerHTML</th></tr>';for(heading in headings){let h= headings[heading]; result+='<tr><td>' ;if(typeof h === 'object'){ let t= h.outerHTML; t=  escapeHTML(t);result+=t;}result += '</td><td>'+ h.innerHTML + '</td></tr>'}result+= '</table>';var lw=window.open('', 'lw', '');lw.document.open();lw.document.write(result);lw.document.close();">
+            Headings</a>
+      </li>
+
+      </ol>
+    </section>
+
+    <section>
+        <h2>Other Bookmarklets</h2>
+            <ol class="list">
+        <li>
+          <a href="javascript:(function(){var elms = document.getElementsByTagName('p');var pane= document.createElement('dialog');var myHtml = '';for(i=0, j=elms.length;i<j; i++){myHtml+= elms[i].outerHTML }pane.style.cssText='z-index: 50000;background-color: #f9f1f1;';document.body.insertBefore(pane, document.body.children[0]);pane.innerHTML = myHtml;pane.showModal();})();">HBR</a>
+        </li>              
+         
+
+        <li>
+          <a href="javascript:(function(){document.getElementById('rightCol').style.display='none';document.getElementById('contentArea').style.width='960px';document.getElementById('pagelet_sidebar').style.display='none';document.getElementsByClassName('_5pcb')[0].setAttribute('style','margin-left:50px;width:900px')})();">Facebook</a>
+        </li>   
+
+
+      </ol>                
     </section>
 
   </body>
