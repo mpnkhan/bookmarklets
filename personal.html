@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Some Bookmarks I have">
+    <meta name="author" content="Nawaz">
+
+    <title>Favourite Bookmarklets</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+      .list{
+        font-size: 1.5em;
+        line-height: 2em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+
+        <h2>Personal Bookmarklets</h2>
+            <ol class="list">
+        <li>
+          <a href="javascript:(function(){var elms = document.getElementsByTagName('p');var pane= document.createElement('dialog');var myHtml = '';for(i=0, j=elms.length;i<j; i++){myHtml+= elms[i].outerHTML }pane.style.cssText='z-index: 50000;background-color: #f9f1f1;';document.body.insertBefore(pane, document.body.children[0]);pane.innerHTML = myHtml;pane.showModal();})();">HBR</a>
+        </li>              
+         
+
+        <li>
+          <a href="javascript:(function(){document.getElementById('rightCol').style.display='none';document.getElementById('contentArea').style.width='1020px';document.getElementById('pagelet_sidebar').style.display='none';document.getElementsByClassName('_5pcb')[0].setAttribute('style','margin-left:50px;width:900px')})();">Facebook</a>
+        </li>   
+
+
+      </ol>                
+    </section>
+
+  </body>
+</html>

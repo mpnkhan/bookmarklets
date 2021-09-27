@@ -79,21 +79,5 @@ let headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');let result='<
       </ol>
     </section>
 
-    <section>
-        <h2>Other Bookmarklets</h2>
-            <ol class="list">
-        <li>
-          <a href="javascript:(function(){var elms = document.getElementsByTagName('p');var pane= document.createElement('dialog');var myHtml = '';for(i=0, j=elms.length;i<j; i++){myHtml+= elms[i].outerHTML }pane.style.cssText='z-index: 50000;background-color: #f9f1f1;';document.body.insertBefore(pane, document.body.children[0]);pane.innerHTML = myHtml;pane.showModal();})();">HBR</a>
-        </li>              
-         
-
-        <li>
-          <a href="javascript:(function(){document.getElementById('rightCol').style.display='none';document.getElementById('contentArea').style.width='960px';document.getElementById('pagelet_sidebar').style.display='none';document.getElementsByClassName('_5pcb')[0].setAttribute('style','margin-left:50px;width:900px')})();">Facebook</a>
-        </li>   
-
-
-      </ol>                
-    </section>
-
   </body>
 </html>
