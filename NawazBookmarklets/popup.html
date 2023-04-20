@@ -3,9 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <title>Nawaz Bookmarklet Extension</title>
-    <script src="popup.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");    
+      body {
+        font-family: 'Atkinson+Hyperlegible,Helvetica,Arial,sans-serif';
+        font-size: calc(15px + 0.390625vw);
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        padding: 20px;
+        min-width: 600px;
+        min-height: 600px;      
+      }
+
+    .input-group > * {
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #0d6efd;  /*#0d6efd*/
+      border-color:#0d6efd ;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .btn[aria-pressed="false"] {
+      display: inline-block;
+      background-color: #eee;  /*#0d6efd*/
+      border-color: #6528e0;
+      border-bottom: 1px solid transparent;
+      color: black;
+    }
+    .btn[aria-pressed="false"]:hover {
+      background-color: #ccc;
+      border-color: #6528e0;
+    }    
+    .btn[aria-pressed="true"]:hover {
+      background-color: #6528e0;
+      border-color: #6528e0;
+    }
+
+    .btn:active {
+      background-color: #5a23c8;
+      border-color: #5a23c8;      
+    }
+
+     .list{
+        line-height: 1.5 !important;
+        letter-spacing: 0.12em !important;
+        word-spacing: 0.16em !important;
+      }
+
+  </style>      
   </head>
   <body>
-    <ol id="bookmarklets"></ul>
+    <div class="container">
+
+
+      <ol id="bookmarklets" class="list"></ol>
+
+    </div>  
   </body>
+  <script src="popup.js"></script>
+
 </html>

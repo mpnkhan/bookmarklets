@@ -53,14 +53,21 @@ const bookmarklets = [
 const createBookmarkletListItem = (bookmarklet, index) => {
   const li = document.createElement("li");
   const button = document.createElement("button");
+  button.setAttribute("aria-pressed","false");
+  button.classList.add("btn");
   button.textContent = bookmarklet.name;
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (e) => {
+    
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id },
         files: [bookmarklet.file]
       });
     });
+  
+    const elem =e.target;
+    // console.log(elem.getAttribute("aria-pressed"))
+    elem.setAttribute('aria-pressed', elem.getAttribute("aria-pressed") === 'true' ? 'false' : 'true');
   });
   li.appendChild(button);
   return li;
