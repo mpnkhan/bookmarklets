@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Nawaz Bookmarklets Extension",
+  "version": "1.0",
+  "description": "Evaluate bookmarklets in the current page",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' ;"
+  },  
+  "permissions": ["activeTab", "scripting"]
+}

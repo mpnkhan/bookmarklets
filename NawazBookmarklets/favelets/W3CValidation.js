@@ -1,0 +1,1 @@
+javascript:void(window.location='https://validator.w3.org/check?uri='+encodeURIComponent(window.location))

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nawaz Bookmarklet Extension</title>
+    <style type="text/css">
+      textarea{width: 500px;height: 200px}
+    </style>
+  </head>
+  <body>
+    <label for="ip">Decode Bookmarklet</label>
+    <br>
+    <textarea id="ip"></textarea>
+    <br>
+    <button onClick="deCode()">Decode</button>
+    <br>
+    <br>
+    <br>
+
+    <label for="op">Decoded Bookmarklet</label>
+    <br>
+    <textarea id="op"></textarea>
+
+    <script type="text/javascript">
+      deCode = () => {
+        document.getElementById('op').value = decodeURIComponent(document.getElementById('ip').value);
+        // alert('clicked')
+      }
+
+    </script>
+
+  </body>
+</html>
