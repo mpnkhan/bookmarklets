@@ -1,0 +1,8 @@
+Bookmarklets used in this extension are taken from the following places
+Paul J Adam bookmarklets : https://github.com/pauljadam/bookmarklets
+Text Spacing bookmarklet: https://codepen.io/stevef/full/YLMqbo
+Link without href bookmarklet: https://www.last-child.com/accessibility-bookmarklets/
+Outline CSS images bookmarklet: http://zomigi.com/demo/background-images_remove_outline.html
+Autocomplete bookmarklet: https://a11y-tools.com/bookmarklets/
+Focus Order bookmarklet: https://nota-bene.org/Focus-order-bookmarklet
+Aria Incorrect Usage: https://github.com/ThePacielloGroup/WAI-ARIA-Usage

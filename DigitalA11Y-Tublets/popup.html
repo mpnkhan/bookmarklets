@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <style>
+      .toggle-button {
+    background-color: blue;
+    margin: 0px 0;
+    border-radius: 20px;
+    border: 1px solid #D0D0D0;
+    height: 14px;
+    left:4px;
+    cursor: pointer; 
+    width: 30px;
+    position: relative;
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+  .toggle-button button {
+    cursor: pointer;
+    outline: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    border-radius: 100%;
+    width: 8px;
+    height: 15px;
+    background-color: white;
+    float: left;
+    margin: -3px 0 0 -3px;
+    border: 1px solid #D0D0D0;
+    transition: left 0.3s;
+  }
+  .toggle-button-selected {
+    background-color: red;
+    border: 1px solid #7DA652;
+  }
+  .toggle-button-selected button {
+    left: 13px;
+    top: 0;
+    margin: 0;
+    border: none;
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  button:not(#_rpage){
+    font-size: 0;
+  }
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: .5rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.custom-table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.custom-table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+/* Add zebra-striping for odd rows */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+  </style> 
+  </head>
+
+  <body>
+    <a href="https://www.digitala11y.com/" target="_blank">
+      <img src="images/logo.png" alt="Digital A11y logo"  style="height:2.75rem; width: 10.5rem;"/>
+    </a>
+  <h1 scope="col">A11y Tublets</h1>
+  <table class="custom-table">
+  <tbody>
+    <tr>
+      <td>ARIA</td>
+      <td>
+      <div class="toggle-button" id="toggle">
+        <button id="ariat" aria-pressed="false">ARIA</button>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Invalid ARIA usage</td>
+      <td>
+      <div class="toggle-button" id="toggle">
+        <button id="aria-usaget" aria-pressed="false">ARIA usage</button>
+      </div>
+      </td>
+    </tr>    
+    <tr>
+      <td>Images</td>
+      <td>
+      <div class="toggle-button" id="toggle">
+        <button id="imagest" aria-pressed="false">Images</button>
+      </div>
+      <td>
+     </tr>
+    <tr>
+      <td>Forms</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+        <button id="formst" aria-pressed="false">Forms</button>
+      </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Headings</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="headingst" aria-pressed="false">Headings</button>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Tables</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="tablest" aria-pressed="false">Tables</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Landmarks</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="landmarkst" aria-pressed="false">Landmarks</button>
+        </div>
+        </td>
+      </tr>
+    <tr>
+      <td>Lang</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="langt" aria-pressed="false">Lang</button>
+        </div>
+      </td>  
+      </tr>
+    <tr>
+      <td>Tabindex</td>
+        <td>
+          <div class="toggle-button" id="toggle">
+            <button id="tabindext" aria-pressed="false">Tabindex</button>
+          </div>
+        </td>
+      </tr>
+    <tr>
+      <td>Focus Order</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="FocusOrdert" aria-pressed="false">Focus Order</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Title Attributes</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="tattrst" aria-pressed="false">Title Attributes</button>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Iframes</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="iframest" aria-pressed="false">Iframes</button>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Lists</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="listst" aria-pressed="false">Lists</button>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Force Show Focus</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="fsft" aria-pressed="false">Force Show Focus</button>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>Text Spacing</td>
+      <td>
+        <div class="toggle-button" id="toggle">
+          <button id="tspacingt" aria-pressed="false">Text Spacing</button>
+        </div>
+      </td>  
+      </tr>
+      <tr>
+        <td>Outline CSS Images</td>
+        <td>
+          <div class="toggle-button" id="toggle">
+            <button id="ocssimgt" aria-pressed="false">Outline CSS Images</button>
+          </div>
+        </td>  
+        </tr>
+        <tr>
+          <td> Auto complete</td>
+          <td>
+            <div class="toggle-button" id="toggle">
+              <button id="autocompt" aria-pressed="false">Auto complete</button>
+            </div>
+          </td>  
+          </tr>
+          <tr>
+            <td> Link without href</td>
+            <td>
+              <div class="toggle-button" id="toggle">
+                <button id="lhreft" aria-pressed="false">Link without href</button>
+              </div>
+            </td>  
+            </tr>
+            <br>
+    <tr>
+      <td colspan="2"><button scope="row" id="_rpage" style="margin: 0.5rem;">Reset Page</button></td>
+    </tr>
+    <tr >
+       <td><a href="https://www.digitala11y.com/products/help/" target="_blank">Help</a></td>
+       <td><a href="https://www.digitala11y.com/contact/" target="_blank" >Contact</a></td></tr> 
+    <tr><td colspan="2">  &#169; 2022 DigitalA11Y </td></tr>
+  </tbody>
+</table>
+
+  <script src="data/jquery.js"></script>
+  <script src="popup.js"></script>
+
+  </body>
+
+</html>

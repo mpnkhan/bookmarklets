@@ -1,0 +1,11 @@
+{
+  "name": "bookmarklets",
+  "description": "all bookmarklets in one place",
+  "version": "1.0",
+    "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+    "devtools_page": "devtools.html",
+  
+}
