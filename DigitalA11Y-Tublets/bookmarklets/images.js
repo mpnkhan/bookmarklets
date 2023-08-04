@@ -1,3 +1,4 @@
+(()=>{
         $("span").remove(".altSpan, .axSpan, .closeSpan");
 		$("a[alt], button[alt], label[alt]").each(function() {
 			$(this).before("<span class=\"altSpan\" style=\"color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;speak:literal-punctuation;\"> INVALID❌alt=\""+$(this).attr('alt')+"\" on "+$(this).prop("tagName")+"</span>");
@@ -81,3 +82,4 @@
 				setTimeout(function(){ $('#success').remove(); }, 3000);
   			}
       $("script[src$='images.js']").remove();
+})();

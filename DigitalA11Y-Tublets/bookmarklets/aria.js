@@ -1,3 +1,4 @@
+(()=>{
         $("span").remove(".openSpan, .closeSpan, .inputSpan, .axSpan");
 		var arias = $('[aria-details], [aria-disabled], [aria-errormessage], [aria-flowto], [aria-owns], [aria-roledescription], [aria-keyshortcuts], [aria-autocomplete], [aria-sort], [aria-placeholder], [aria-busy], [aria-modal], [aria-details], [aria-activedescendant], [aria-colcount], [aria-colindex], [aria-colspan], [aria-posinset], [aria-rowcount], [aria-rowindex], [aria-rowspan], [aria-setsize], [aria-modal], [aria-current], [aria-expanded], [aria-controls], [aria-selected], [aria-required], [aria-invalid], [aria-labelledby], [aria-describedby], [aria-label], [role], [aria-hidden], [aria-level], [aria-relevant], [aria-haspopup], [aria-valuetext], [aria-orientation], [aria-valuemin], [aria-valuemax], [aria-valuenow], [aria-pressed], [aria-checked], [aria-live], [aria-atomic]').not(':input[type=hidden], :input[type=button], :input[type=submit], :input[type=reset]');
 		$(arias).each(function() {
@@ -183,3 +184,4 @@
 				setTimeout(function(){ $('#success').remove(); }, 3000);
 			}
       $("script[src$='aria.js']").remove();
+})();      

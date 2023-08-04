@@ -8,13 +8,20 @@ chrome.storage.local.get(["sessionDataHTML"], function(result){
     })
 })
 
-
 $(document).on('click', '.toggle-button', function(){
     $(this).toggleClass('toggle-button-selected');
-
+    const button= $(this, "button").children()[0];
+    const btnId= button.id;
+    const file= 'bookmarklets/'+ btnId.substring(0,btnId.length-1)+'.js';
+    button.setAttribute('aria-pressed', button.getAttribute("aria-pressed") === 'true' ? 'false' : 'true');
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.scripting.executeScript({
+          target: { tabId: tabs[0].id },
+          files: ['data/jquery.js', file]
+        });
+    });    
+    /*
     bookmarklets.forEach(element => {
-    
-
         if($(this, "button").children()[0].id == (element+'t'))
             if ($(this).hasClass('toggle-button-selected')) {
             $('#'+element+'t').attr('aria-pressed', true);
@@ -23,7 +30,7 @@ $(document).on('click', '.toggle-button', function(){
                 },
                     function(){
                         chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-                            console.log("bookmarklets/"+element+".js");
+                            // console.log("bookmarklets/"+element+".js");
                             chrome.scripting.executeScript({
                                 target: {tabId: tabs[0].id, allFrames: true},
                                 files: ["data/jquery.js","bookmarklets/"+element+".js"]
@@ -43,7 +50,7 @@ $(document).on('click', '.toggle-button', function(){
             
             }
     });
-
+    */
     chrome.storage.local.get(["sessionDataHTML"], function(result){
         chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
             sessionDataHTML = {}
