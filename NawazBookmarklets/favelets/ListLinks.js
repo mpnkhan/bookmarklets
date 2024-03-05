@@ -1,26 +1,57 @@
-javascript: var l = document.links.length;
-var s = '';
-for (i = 0; i < l; i++) {
-    var lk = document.links[i];
+javascript: var l = document.links;
+
+let s = `
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          Set up fixed width for
+        </title>
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+              content="width=device-width, 
+                       initial-scale=1.0" />
+ 
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            body,pre{color:#000} a[href]:empty::before {content: attr(href)} a:not([href]){border:3px solid red; padding:2px}
+        </style>
+    </head>
+    <body>
+        <h1 style="color: #00cc00;">
+         Links List for : ${document.location.href}
+        </h1>
+        <div style="overflow-x: auto;">
+        <table width="50%">
+            <tr valign=top>
+                <th>Snippet</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>URL</th>
+            </tr>
+`;
+
+for (i = 0; i < l.length; i++) {
+    var lk = l[i];
     s += '<tr valign=top>';
-    s += '<td>' + lk.innerHTML + '</td>';
-    s += '<td>' + lk.title + '</td>';
-    s += '<td><a href=' + lk.href + '>' + lk.href + '</a></td>';
+    s += '<td width="30%"><textarea style="width:300px;height:100px">' + lk.outerHTML + '</textarea></td>';
+    s += '<td  width="30%">' + lk.computedName + '</td>';
+    s += '<td  width="30%">' + lk.computedRole + '</td>';    
+    s += '<td width="40%"><a href=' + lk.href + '>' + lk.href + '</a></td>';
     s += '</tr>';
 }
-s = 'Links for: ' + document.location.href + '<table border=\'1px\' cellpadding=\'10px\' cellspacing=\'10px\'><tr valign=top><th>Text</th><th>Title</th><th>URL</th></tr>' + s + '</table>';
-
-var objCSS = document.createElement("style");
-var objTitle = document.createElement("title");
-objTitle.appendChild(document.createTextNode("List of Links"));
-
-var css=`body,pre{color:#000} a[href]:empty::before {content: attr(href)} a:not([href]){border:3px solid red; padding:2px}`;
-objCSS.appendChild(document.createTextNode(css));
+s += `
+            </table>
+        </div>
+    </body>
+</html>
+`;
 
 var lw = window.open('', 'lw', '');
-console.log(lw.document)
-lw.document.getElementsByTagName("HTML")[0].setAttribute("lang", "en"); 
-lw.document.getElementsByTagName("HEAD")[0].appendChild(objCSS); 
-lw.document.getElementsByTagName("HEAD")[0].appendChild(objTitle);
 lw.document.write(s);
 lw.document.close();
