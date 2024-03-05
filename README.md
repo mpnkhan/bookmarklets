@@ -5,4 +5,4 @@ There are many bookmarklets available but few of them doesn't include and extern
 
 <img width="1789" alt="Browser Script error saying it can't include script from different domain on a https website" src="https://user-images.githubusercontent.com/2254656/133956556-826e0e99-a76d-4d82-9533-51a5fc31ec86.png">
 
-All it does that it opens a new browser window and shows the list of tags for manual inpsection 
+This bookmarklets collection are chrome extension  which does few nice things, you may want to try. 
