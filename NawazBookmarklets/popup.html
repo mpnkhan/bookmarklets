@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Nawaz Bookmarklet Extension</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");    
       body {
@@ -20,6 +22,7 @@
     .input-group > * {
       margin-bottom: 10px;
     }
+ /*   
     .btn {
       display: inline-block;
       background-color: #0d6efd;  /*#0d6efd*/
@@ -51,58 +54,103 @@
       background-color: #5a23c8;
       border-color: #5a23c8;      
     }
+*/
 
      .list{
-        line-height: 1.5 !important;
+        line-height: 30px !important;
         letter-spacing: 0.12em !important;
         word-spacing: 0.16em !important;
       }
 
+      .page-contents-list {
+        margin: 2em 0 2em;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #aaa;
+      }
+
+      .page-contents-list li {
+        margin: 0;
+        padding:  .5em;
+        border: 1px solid #aaa;
+        border-bottom:  0;
+      }
+
+      .page-contents-list a {
+        display: inline-block;
+      }
+
+      .page-contents-list a:focus {
+        background: green;
+        color: #fff;
+      }
+
+      .page-contents-list a:hover {
+        background: green;
+        color: #fff;
+      }
+
+      .page-contents-list a:active {
+        background: red;
+      }
   </style>      
   </head>
   <body>
     <div class="container">
-      <ol class="bookmarklets" class="list">
-        <li><button class="btn" aria-pressed="false" data-href="favelets/aria-usage.js">WAI-ARIA usage 
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Manual Checks Bookmarklets</h1>
+      </div>  
+<!--content-->
+      <ol class="bookmarklets page-contents-list">
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/aria-usage.js">WAI-ARIA usage 
           <!--https://github.com/ThePacielloGroup/WAI-ARIA-Usage-->
           </button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/ListLinks.js">List of Links</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/Listheadings.js">List of Headings</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/MissingAlt.js">Missing Alternate text</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/ListImages.js">List of Images</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/ListLandMarks.js">List of Landmark Roles</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/TargetSize.js">Target Size</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/TextSpacing.js">Text Spacing</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/FocusOrder.js">Focus Order</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/Aria-hidden.js">Aria Hidden</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/ShowFocus.js">Show Tab Focus</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/W3CValidation.js">Validate with W3C</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/revengeCSS.js">Revenge CSS</button></li>        
+        <li><button class="btn btn-warning"  aria-pressed="false" data-href="favelets/ListLinks.js">List of Links</button></li>
+        <li><button class="btn btn-warning"  aria-pressed="false" data-href="favelets/Listheadings.js">List of Headings</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/MissingAlt.js">Missing Alternate text</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ListImages.js">List of Images</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ListLandMarks.js">List of Landmark Roles</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/TargetSize.js">Target Size</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/TextSpacing.js">Text Spacing</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/FocusOrder.js">Focus Order</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/Aria-hidden.js">Aria Hidden</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ShowFocus.js">Show Tab Focus</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/W3CValidation.js">Validate with W3C</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/revengeCSS.js">Revenge CSS</button></li>        
       </ol>
       <hr style="1px dotted blue">
-      <h2>https://a11y-tools.com/bookmarklets/</h2>
-      <ol class="bookmarklets" class="list">
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/lostFocus.js">Alerts Lost focus</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/WTFocus.js">Accessible name</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/SRSimulations.js">Screen Reader Simulaation</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/RevealFocusOrder.js">Reveal Focus Order</button></li>
 
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/listImages.js">List Images</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/listLinks.js">List Links</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/listButtons.js">List Buttons</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/listThingsWithTitles.js"> List things with titles</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/checkNonUnderlinedLinks.js">Non-underlined links</button></li>        
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/listHeadings.js">Check headings</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/showAllAutoCompleteCandidates.js">Suggest autocomplete values</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/isolateImages.js">Isolate images</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/showAllFocusStyles.js">Show focus styles</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/roleReverser.js">Role Reverser</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/unframeAllTheIframes.js">Unframe iFrames</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/outlineEls.js">Outliner</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/getXpathAndSource.js">Xpath getter</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/isolateEls.js">Isolator</button></li>
-        <li><button class="btn" aria-pressed="false" data-href="favelets/a11ytools/DOMfreezeTimer.js">Freeze the DOM (debugger)</button></li>
-      </ol>
+      <h2>https://a11y-tools.com/bookmarklets/</h2>
+
+      <ol class=" bookmarklets page-contents-list">
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/listImages.js">List Images</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/listLinks.js">List Links</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/listButtons.js">List Buttons</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/listThingsWithTitles.js"> List things with titles</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/checkNonUnderlinedLinks.js">Non-underlined links</button></li>        
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/listHeadings.js">Check headings</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/watchLiveRegion.js">Live Region Watcher</button></li>
+
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/lostFocus.js">Alerts Lost focus</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/WTFocus.js">Accessible name</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/SRSimulations.js">Screen Reader Simulaation</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/RevealFocusOrder.js">Reveal Focus Order</button></li>
+
+
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/showAllAutoCompleteCandidates.js">Suggest autocomplete values</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/isolateImages.js">Isolate images</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/showAllFocusStyles.js">Show focus styles</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/roleReverser.js">Role Reverser</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/unframeAllTheIframes.js">Unframe iFrames</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/outlineEls.js">Outliner</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/getXpathAndSource.js">Xpath getter</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/isolateEls.js">Isolator</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/DOMfreezeTimer.js">Freeze the DOM (debugger)</button></li>
+      </ol> 
+<!--end content -->
+      </div>
+    </main>
     </div>
     <!--
 Bookmarklet to JS
@@ -114,5 +162,6 @@ https://chriszarate.github.io/bookmarkleter/
     -->
   </body>
   <script src="popup.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 
 </html>

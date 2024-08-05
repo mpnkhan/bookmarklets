@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Nawaz Bookmarklets Extension",
-  "version": "1.0",
+  "name": "Nawaz Accessibilty testing Bookmarklets",
+  "version": "1.1",
   "description": "Evaluate bookmarklets in the current page",
   "action": {
     "default_popup": "popup.html",
