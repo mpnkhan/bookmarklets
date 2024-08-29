@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bookmarklets = document.querySelectorAll(".bookmarklets");
   bookmarklets.forEach((bookmarkletList) => {
-    const btns = bookmarkletList.querySelectorAll("button");
+    const btns = bookmarkletList.querySelectorAll("button, input");
     btns.forEach((button) => {
       const file = button.dataset.href;
       button.addEventListener("click", (e) => {

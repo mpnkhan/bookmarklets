@@ -60,7 +60,13 @@ javascript: (function () {
 				s.style.paddingLeft = ".1em";
 				s.style.paddingRight = ".1em";
 				positive[i].style.border = "thin dotted darkblue";
-				positive[i].parentNode.insertBefore(s, positive[i]);
+				let existingElement = positive[i].parentNode.querySelector('.focusOrder-info');
+				if (existingElement) {
+				    positive[i].style="";
+				    existingElement.parentNode.removeChild(existingElement);
+				} else {
+				    positive[i].parentNode.insertBefore(s, positive[i]);
+				}				
 			}
 			for (var i = 0; i < ar.length; i++) {
 				s = doc.createElement("span");
@@ -75,7 +81,13 @@ javascript: (function () {
 				s.style.paddingLeft = ".1em";
 				s.style.paddingRight = ".1em";
 				ar[i].style.border = "thin dotted darkblue";
-				ar[i].parentNode.insertBefore(s, ar[i]);
+				let existingElement = ar[i].parentNode.querySelector('.focusOrder-info');
+				if (existingElement) {
+				    existingElement.parentNode.removeChild(existingElement);
+				    ar[i].style="";
+				} else {
+				    ar[i].parentNode.insertBefore(s, ar[i]);
+				}				
 			}
 		}
 	})();

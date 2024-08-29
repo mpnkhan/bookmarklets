@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form Example</title>
+</head>
+<body>
+
+    <form aria-labelledby="form-title">
+        <h1 id="form-title">Registration Form</h1>
+
+        <!-- Name Field -->
+        <div>
+            <label>Name
+                <input type="text" id="name"  aria-required="true" aria-autocomplete="name">
+            </label>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+            <label for="email" id="email-label">Email</label>
+        <input type="email" id="email" aria-labelledby="email-label" aria-required="true" aria-describedby="desc1" aria-invalid="true">
+            <br> <span id="desc1">Email is invalid</span>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+            <label for="password" id="password-label">Password</label>
+            <input type="password" id="password" aria-labelledby="password-label" aria-required="true" required>
+        </div>
+
+        <!-- Gender Selection -->
+        <fieldset aria-labelledby="gender-group">
+            <legend id="gender-group">Gender</legend>
+            <div>
+                <input type="radio" id="male" name="gender" value="male" aria-labelledby="male-label">
+                <label for="male" id="male-label">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" name="gender" value="female" aria-labelledby="female-label">
+                <label for="female" id="female-label">Female</label>
+            </div>
+            <div>
+                <input type="radio" id="other" name="gender" value="other" aria-labelledby="other-label">
+                <label for="other" id="other-label">Other</label>
+            </div>
+        </fieldset>
+
+        <!-- Country Selection -->
+        <div>
+            <label for="country" id="country-label">Country</label>
+            <select id="country" aria-labelledby="country-label" aria-required="true" required>
+                <option value="">Please select</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+            </select>
+        </div>
+
+        <!-- Comments Text Area -->
+        <div>
+            <label for="comments" id="comments-label">Comments</label>
+            <textarea id="comments" aria-labelledby="comments-label" rows="4" cols="50"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit" aria-label="Submit Registration Form">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>

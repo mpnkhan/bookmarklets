@@ -22,40 +22,7 @@
     .input-group > * {
       margin-bottom: 10px;
     }
- /*   
-    .btn {
-      display: inline-block;
-      background-color: #0d6efd;  /*#0d6efd*/
-      border-color:#0d6efd ;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .btn[aria-pressed="false"] {
-      display: inline-block;
-      background-color: #eee;  /*#0d6efd*/
-      border-color: #6528e0;
-      border-bottom: 1px solid transparent;
-      color: black;
-    }
-    .btn[aria-pressed="false"]:hover {
-      background-color: #ccc;
-      border-color: #6528e0;
-    }    
-    .btn[aria-pressed="true"]:hover {
-      background-color: #6528e0;
-      border-color: #6528e0;
-    }
-
-    .btn:active {
-      background-color: #5a23c8;
-      border-color: #5a23c8;      
-    }
-*/
-
+ 
      .list{
         line-height: 30px !important;
         letter-spacing: 0.12em !important;
@@ -93,6 +60,9 @@
       .page-contents-list a:active {
         background: red;
       }
+.form-check-input {
+    border: 2px solid brown;
+}      
   </style>      
   </head>
   <body>
@@ -102,22 +72,72 @@
         <h1 class="h2">Manual Checks Bookmarklets</h1>
       </div>  
 <!--content-->
-      <ol class="bookmarklets page-contents-list">
+    <ol class="bookmarklets page-contents-list">
+      <li>
+        <input class="form-check-input" type="checkbox" id="langID" data-href="favelets/pja/lang.js">
+        <label class="form-check-label" for="langID">Lang Attributes</label>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="headID" data-href="favelets/pja/headings.js">
+        <label class="form-check-label" for="headID">Headings</label>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="landID" data-href="favelets/pja/landmarks.js">
+        <label class="form-check-label" for="landID">Landmarks</label>
+      </li>
+      <li>
+        <button class="btn btn-warning" aria-pressed="false" data-href="favelets/ListLandMarks.js">List of Landmark Roles</button>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="imageID" data-href="favelets/pja/images.js">
+        <label class="form-check-label" for="imageID">Images</label>
+      </li>
+      <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/MissingAlt.js">Missing Alternate text</button></li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="iframeID" data-href="favelets/pja/iframes.js">
+        <label class="form-check-label" for="iframeID">Iframes</label>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="listID" data-href="favelets/pja/lists.js">
+        <label class="form-check-label" for="listID">Lists</label>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="LinkNoHref" data-href="favelets/LinkNoHref.js">
+        <label class="form-check-label" for="LinkNoHref">Links without Href</label>
+      </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="formID" data-href="favelets/pja/forms.js">
+        <label class="form-check-label" for="formID">Forms</label>
+      </li>
+
+      <li>
+        <input class="form-check-input" type="checkbox" id="ariaHidden" data-href="favelets/Aria-hidden.js">
+        <label class="form-check-label" for="ariaHidden">Aria Hidden</label>
+      </li>
+
+        <li>
+        <input class="form-check-input" type="checkbox" id="FocusOrder" data-href="favelets/FocusOrder.js">
+        <label class="form-check-label" for="FocusOrder">Focus Order</label>
+        </li>
+      <li>
+        <input class="form-check-input" type="checkbox" id="TextSpace" data-href="favelets/TextSpacing.js">
+        <label class="form-check-label" for="TextSpace">Text Spacing</label>
+      </li>
+
+      <li>
+        <button class="btn btn-warning" aria-pressed="false" data-href="favelets/TargetSize.js">Target Size</button>
+      </li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ShowFocus.js">Show Tab Focus</button></li>
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/aria-usage.js">WAI-ARIA usage 
           <!--https://github.com/ThePacielloGroup/WAI-ARIA-Usage-->
-          </button></li>
-        <li><button class="btn btn-warning"  aria-pressed="false" data-href="favelets/ListLinks.js">List of Links</button></li>
-        <li><button class="btn btn-warning"  aria-pressed="false" data-href="favelets/Listheadings.js">List of Headings</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/MissingAlt.js">Missing Alternate text</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ListImages.js">List of Images</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ListLandMarks.js">List of Landmark Roles</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/TargetSize.js">Target Size</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/TextSpacing.js">Text Spacing</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/FocusOrder.js">Focus Order</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/Aria-hidden.js">Aria Hidden</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/ShowFocus.js">Show Tab Focus</button></li>
+          </button>
+        </li>        
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/W3CValidation.js">Validate with W3C</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/revengeCSS.js">Revenge CSS</button></li>        
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/revengeCSS.js">Revenge CSS</button></li>
+        <li>
+          <button class="btn btn-warning" aria-pressed="false" data-href="favelets/consoleKeyPress.js">Console Key Press</button>
+        </li>        
+        
       </ol>
       <hr style="1px dotted blue">
 
@@ -133,7 +153,7 @@
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/watchLiveRegion.js">Live Region Watcher</button></li>
 
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/lostFocus.js">Alerts Lost focus</button></li>
-        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/WTFocus.js">Accessible name</button></li>
+        <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/WTFocus.js">Show Accessible name on Focus</button></li>
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/SRSimulations.js">Screen Reader Simulaation</button></li>
         <li><button class="btn btn-warning" aria-pressed="false" data-href="favelets/a11ytools/RevealFocusOrder.js">Reveal Focus Order</button></li>
 
