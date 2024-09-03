@@ -17,7 +17,7 @@
   };
   const getReferencedContents = (arr) => {
     const Ids = arr.split(" ");
-    Ids.map((id) => {
+    return Ids.map((id) => {
       const labelElement = document.getElementById(id);
       return labelElement
         ? labelElement.innerText || labelElement.textContent || ""
@@ -47,7 +47,17 @@
         outlineTemp.classList.remove("outlineGreen");
       });
   } else {
-    let spanTxt, descTxt;
+    const newElement = document.createElement("div");
+    newElement.innerHTML =
+      '<strong class="headSpan" id="formInfo" role="status"></strong>';
+    document.body.insertBefore(newElement, document.body.firstElementChild);
+    let invalid = false;
+
+    let spanTxt,
+      descTxt,
+      invalidAttr = false,
+      acAttr = false;
+
     const elements = document.querySelectorAll("input, textarea, select");
     const filteredElements = Array.from(elements).filter((element) => {
       return !(
@@ -71,7 +81,7 @@
 
       const ariaRequired = elem.getAttribute("aria-required");
       const ariaInvalid = elem.getAttribute("aria-invalid");
-      const ariaAC = elem.getAttribute("aria-autocomplete");
+      const ariaAC = elem.getAttribute("autocomplete");
       const describedBy = elem.getAttribute("aria-describedby");
 
       elem.classList.add("outlineGreen");
@@ -112,44 +122,20 @@
           "afterend",
           `<span class="formSpan">ariaRequired="${ariaRequired}"</span>`,
         );
-      if (ariaInvalid)
+      if (ariaInvalid) {
         elem.insertAdjacentHTML(
           "afterend",
           `<span class="formSpan">ariaInvalid="${ariaInvalid}"</span>`,
         );
-      if (ariaAC)
+        invalidAttr = true;
+      }
+      if (ariaAC) {
         elem.insertAdjacentHTML(
           "afterend",
           `<span class="formSpan">aria-autocomplete="${ariaAC}"</span>`,
         );
-
-      const fieldset = elem.closest("fieldset");
-      if (fieldset) {
-        fieldset.classList.add("outlineGreen");
-        fieldset.insertAdjacentHTML(
-          "afterbegin",
-          `<strong class="formSpan">&lt;legend&gt;</strong>`,
-        );
-        fieldset.insertAdjacentHTML(
-          "beforeend",
-          `<strong class="formSpan">&lt;/legend&gt;</strong>`,
-        );
-
-        const legend = fieldset.querySelector("legend");
-        if (legend) {
-          legend.classList.add("outlineGreen");
-          legend.innerHTML = `<strong class="formSpan">&lt;legend&gt;${legend.innerHTML}<strong class="formSpan">/legend&gt;</strong>`;
-          legend.insertAdjacentHTML(
-            "afterbegin",
-            `<strong class="formSpan">&lt;fieldset&gt;</strong>`,
-          );
-          legend.insertAdjacentHTML(
-            "beforeend",
-            `<strong class="formSpan">&lt;/fieldset&gt;</strong>`,
-          );
-        }
-      } //end fieldset
-
+        acAttr = true;
+      }
       if (describedBy) {
         const describedByText = getReferencedContents(describedBy);
         descTxt = "Described by ids: " + describedBy;
@@ -162,5 +148,35 @@
         );
       }
     }); //end input forEach
+
+    document.querySelectorAll("fieldset").forEach((fieldset) => {
+      fieldset.classList.add("outlineGreen");
+      fieldset.insertAdjacentHTML(
+        "beforebegin",
+        `<strong class="formSpan">&lt;fieldset&gt;</strong>`,
+      );
+      fieldset.insertAdjacentHTML(
+        "afterend",
+        `<strong class="formSpan">&lt;/fieldset&gt;</strong>`,
+      );
+    }); //end fieldset
+    document.querySelectorAll("legend").forEach((legend) => {
+      //legend.innerHTML = `<strong class="formSpan">&lt;legend&gt;${legend.innerHTML}<strong class="formSpan">/legend&gt;</strong>`;
+      legend.insertAdjacentHTML(
+        "afterbegin",
+        `<strong class="formSpan">&lt;legend&gt;</strong>`,
+      );
+      legend.insertAdjacentHTML(
+        "beforeend",
+        `<strong class="formSpan">&lt;/legend&gt;</strong>`,
+      );
+    }); //end legend
+
+    if (!invalidAttr)
+      document.getElementById("formInfo").innerHTML +=
+        "Missing aria-invalid(3.3.1)";
+    if (!acAttr)
+      document.getElementById("formInfo").innerHTML +=
+        "Missing Autocomplete(1.3.5)";
   }
 })();
