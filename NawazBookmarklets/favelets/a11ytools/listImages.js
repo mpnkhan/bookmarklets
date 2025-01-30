@@ -225,7 +225,8 @@ javascript: (function() {
 			}
 
 			row += '<td>' + imgType + '</td>';
-			row += '<td><img src="' + imgSrc + '" alt="" style="max-width:200px;max-height:200px;"></td>';
+			// row += '<td><img src="' + imgSrc + '" alt="" style="max-width:200px;max-height:200px;"></td>';
+			row += '<td><img src="' + imgSrc + '" alt=""></td>';
 			row += '<td>' + accName;
 			if ((accName.trim() !== alt.trim()) && (alt.trim() !== '')) {
 				row += '<div class="anDiff">Accessible name differs</div>';
@@ -243,8 +244,8 @@ javascript: (function() {
 				row += '<div class="issues">Definite issue(s) found with this image</div>';
 				consoleOutput = 'Image \'' + imgSrc + '\':\n' + notes + 'Markup with issue:\n' + snippet + '\n---------------\n';
 			}
-			row += notes + '<button class="showSnippet" type="button" aria-label="Show markup snippet" aria-expanded="false"><code>&lt;/&gt;</code></button><div class="snippet" hidden><label for="snip' + i + '">Markup snippet</label><textarea id="snip' + i + '" aria-label="Markup snippet for this node">' + snippet + '</textarea><button type="button" class="decrapulate" aria-label="De-crapulate this markup snippet">De-crapulate</button></div></td>';
-			row += '<td><button data-img-ref="' + i + '" class="highlightButton" type="button" aria-pressed="false" aria-label="Highlight this issue on the page visually">Show</button></td>';
+			row += notes + '</td>';
+			row += '<td><div class="snippet"><label for="snip' + i + '">Markup snippet</label><textarea rows="10" cols="100" id="snip' + i + '" aria-label="Markup snippet for this node">' + snippet + '</textarea></div></td>';
 			row += '</tr>';
 			i++;
 			if (warn || err) {
@@ -253,14 +254,18 @@ javascript: (function() {
 				console.log(consoleOutput);
 			}
 		});
-		s = '<style>[aria-pressed=true]{color:white;background:darkred;};div.issues{font-weight:bold;};textarea {margin:5px 0;}.snippet label {font-weight:bold;font-size:0.8em;color:black;}.snippet{background:#efefef;outline:1px solid #666;padding:5px;margin-top:5px;}.checkDiffs{background:PapayaWhip;}.anDiff{color:red;font-weight:bold;font-size:10px;display:block}.warn {background:lightyellow;}.err {background:PapayaWhip;color:red;}.visually-hidden,.a11y,.visuallyhidden,.sr-text,.sr-only {clip-path: inset(100%);clip: rect(1px, 1px, 1px, 1px);height: 1px;overflow: hidden;position: absolute;white-space: nowrap;width: 1px;}* {-webkit-box-sizing: border-box;box-sizing: border-box;}html {/*border: .75em solid #fff;*/min-height: 100vh;}body {background: #f7f7f5;color: #333;font: 400 105%/1.4 "Work Sans", sans-serif;margin: 1.5em auto;max-width: 54em;width: 90%;}a:img,a:visited {border-bottom: 1px solid rgba(42, 122, 130, .5);color: #2b7a82;text-decoration: none;}a:hover {border-bottom: 2px solid;color: #1e565c;}button:focus,a:focus {box-shadow: none;outline-offset: 2px;outline: 3px solid rgba(42, 122, 130, .75);}a:focus {border-bottom: none;}a:active {background: #333;color: #fff;}code {font-family: Consolas, monaco, monospace;-moz-tab-size: 4;tab-size: 4;text-transform: none;white-space: pre-wrap;color:brown;}textarea {width: 100%}legend h2, legend h3 {margin: 0;}table {border-collapse: collapse;}th,td {padding: 10px;border:2px solid #2b7a82;}table caption {font-weight: bold;text-align: left;margin:1em 0;}</style><h1>List of images on this page.</h1>';
+		s = '<style>[aria-pressed=true]{color:white;background:darkred;};div.issues{font-weight:bold;};textarea {margin:5px 0;}.snippet label {font-weight:bold;font-size:0.8em;color:black;}.snippet{background:#efefef;outline:1px solid #666;padding:5px;margin-top:5px;}.checkDiffs{background:PapayaWhip;}.anDiff{color:red;font-weight:bold;font-size:10px;display:block}.warn {background:lightyellow;}.err {background:PapayaWhip;color:red;}.visually-hidden,.a11y,.visuallyhidden,.sr-text,.sr-only {clip-path: inset(100%);clip: rect(1px, 1px, 1px, 1px);height: 1px;overflow: hidden;position: absolute;white-space: nowrap;width: 1px;}* {-webkit-box-sizing: border-box;box-sizing: border-box;}html {/*border: .75em solid #fff;*/min-height: 100vh;}body {background: #f7f7f5;color: #333;font: 400 105%/1.4 "Work Sans", sans-serif;max-width: 54em;width: 90%;}a:img,a:visited {border-bottom: 1px solid rgba(42, 122, 130, .5);color: #2b7a82;text-decoration: none;}a:hover {border-bottom: 2px solid;color: #1e565c;}button:focus,a:focus {box-shadow: none;outline-offset: 2px;outline: 3px solid rgba(42, 122, 130, .75);}a:focus {border-bottom: none;}a:active {background: #333;color: #fff;}code {font-family: Consolas, monaco, monospace;-moz-tab-size: 4;tab-size: 4;text-transform: none;white-space: pre-wrap;color:brown;}textarea {width: 100%}legend h2, legend h3 {margin: 0;}';
+		s += `
+				table {width: 100%;max-width: 100%;table-layout: fixed;border-collapse: collapse;}
+				td {word-wrap: break-word;overflow-wrap: break-word;white-space: normal;}
+				td img {max-width: 100%;height: auto;display: block;}
+				th,td {padding: 10px;border:2px solid #2b7a82;}table caption {font-weight: bold;text-align: left;margin:1em 0;}
+			</style><h1>List of images on this page.</h1>`;
 		s += '<input type="checkbox" id="showPotentialProblemsOnly"><label for="showPotentialProblemsOnly">Show only images where there *may* be issues (' + issueCount + ' found)</label>';
 		s += ' <button class="highlightButtonAll" type="button" aria-pressed="false">Highlight all images on page</button>';
-		s += '<table border="1" cellpadding="5"><caption>All images (img elements or elements with role="img") on this page, the accessible name and any issues found</caption><thead><tr valign=top><th>Image type</th><th>Image thumbnail</th><th scope="col">Accessible name</th><th scope="col">Notes</th><th>Highlight on the page</th></tr></thead><tbody>' + row + '</tbody></table>';
+		s += '<table id="testTable" border="1" cellpadding="5"><caption>All images (img elements or elements with role="img") on this page, the accessible name and any issues found</caption><thead><tr valign=top><th>Image type</th><th>Image thumbnail</th><th scope="col">Accessible name</th><th scope="col">Notes</th><th>Snippet</th></tr></thead><tbody>' + row + '</tbody></table>';
 		s += '<script>function showImages(){';
 		s += 'var refWindow=window.opener;';
-		s += 'var highlightButtons=document.querySelectorAll(".highlightButton");var imgToHighlight;Array.from(highlightButtons).forEach(highlightButton => {highlightButton.addEventListener("click", e => {imgToHighlight="[data-img-ref=\'" + highlightButton.getAttribute("data-img-ref") + "\']";if (highlightButton.getAttribute("aria-pressed")==="false") {refWindow.document.querySelector(imgToHighlight).setAttribute("tabindex","-1");refWindow.document.querySelector(imgToHighlight).focus();refWindow.document.querySelector(imgToHighlight).style.outline="10px solid darkred";refWindow.document.querySelector(imgToHighlight).style.outlineOffset="-10px";highlightButton.setAttribute("aria-pressed","true");} else {refWindow.document.querySelector(imgToHighlight).style.outline="";highlightButton.setAttribute("aria-pressed","false");}});});';
-		s += 'var highlightButtonAll=document.querySelector(".highlightButtonAll");highlightButtonAll.addEventListener("click", e => {if (highlightButtonAll.getAttribute("aria-pressed")==="false") {Array.from(highlightButtons).forEach(highlightButton => {highlightButton.setAttribute("aria-pressed","false");highlightButton.click();});highlightButtonAll.setAttribute("aria-pressed","true");} else {Array.from(highlightButtons).forEach(highlightButton => {highlightButton.setAttribute("aria-pressed","true");highlightButton.click();});highlightButtonAll.setAttribute("aria-pressed","false");}});';
 		s += 'var imgsToCopy=document.querySelectorAll(".imgToCopy");Array.from(imgsToCopy).forEach(imgToCopy => {imgToCopy.addEventListener("focus", e => {imgToCopy.select();});});';
 		s += 'function hideGoodRows(){Array.from(trsWithoutIssue).forEach(trWithoutIssue => {trWithoutIssue.setAttribute("hidden","hidden");});}function showGoodRows(){Array.from(trsWithoutIssue).forEach(trWithoutIssue => {trWithoutIssue.removeAttribute("hidden");});}var trsWithoutIssue=document.querySelectorAll("tbody tr:not(.issue)");var showProblemCheckbox=document.querySelector("#showPotentialProblemsOnly");showProblemCheckbox.addEventListener("click", e => {if (showProblemCheckbox.checked) {hideGoodRows();} else {showGoodRows();}});';
 		s += '}window.addEventListener("load", (event) => {showImages();});</script>';

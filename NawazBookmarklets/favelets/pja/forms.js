@@ -49,7 +49,7 @@
   } else {
     const newElement = document.createElement("div");
     newElement.innerHTML =
-      '<strong class="headSpan" id="formInfo" role="status"></strong>';
+      '<strong class="formSpan" id="formInfo" role="status"></strong>';
     document.body.insertBefore(newElement, document.body.firstElementChild);
     let invalid = false;
 

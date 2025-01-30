@@ -71,5 +71,16 @@
         </div>
     </form>
 
+    <hr>
+
+    <h3>Empty and No href links</h3>
+    <a name="test">Valid name attribute</a> <br><br>
+    <a onclick="alert('clicked')" style="background: pink;">This is button with no href</a><br><br>
+
+    <hr>
+    <a href="#">Not empty</a><br><br>
+    <a href="#"></a> <!-- This link is empty --><br><br>
+    <a href="#">   </a> <!-- This link is also considered empty (only whitespace) -->
+    <a  href="#test">Go to Valid name</a>
 </body>
 </html>
