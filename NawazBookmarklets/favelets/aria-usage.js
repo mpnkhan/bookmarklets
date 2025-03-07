@@ -283,6 +283,15 @@ var objRoleRules = {
 		"deprecatedAttributes": ["aria-errormessage", "aria-haspopup", "aria-invalid"],
 		"nameable": "yes"
 	},
+	"image": {
+		"requiredParent": null,
+		"requiredChild": null,
+		"requiredState": null,
+		"descendantRestrictions": null,
+		"supported": null,
+		"deprecatedAttributes": ["aria-disabled", "aria-dropeffect", "aria-errormessage", "aria-grabbed", "aria-haspopup", "aria-invalid"],
+		"nameable": "yes"
+	}, 
 	"img": {
 		"requiredParent": null,
 		"requiredChild": null,
@@ -1135,7 +1144,7 @@ var objElementRules = {
 		"nodeName": "address",
 		"nativeRole": null,
 		"allowedRoles": "all",
-		"nameable": "no"
+		"nameable": "yes"
 	},
 	"area": {
 		"nodeName": "area",
@@ -1158,7 +1167,7 @@ var objElementRules = {
 	"aside": {
 		"nodeName": "aside",
 		"nativeRole": "complementary",
-		"allowedRoles": ["feed", "note", "presentation", "none", "region", "search", "doc-dedication", "doc-example", "doc-footnote", "doc-pullquote", "doc-tip"],
+		"allowedRoles": ["feed", "note", "presentation", "none", "region", "search", "doc-dedication", "doc-example", "doc-footnote", "doc-glossary", "doc-pullquote", "doc-tip"],
 		"nameable": "yes"
 	},
 	"audio": {
@@ -1177,7 +1186,7 @@ var objElementRules = {
 		"nodeName": "base",
 		"nativeRole": null,
 		"allowedRoles": [],
-		"nameable": "yes"
+		"nameable": "no"
 	},
 	"bdi": {
 		"nodeName": "bdi",
@@ -1207,12 +1216,12 @@ var objElementRules = {
 		"nodeName": "br",
 		"nativeRole": null,
 		"allowedRoles": ["none", "presentation"],
-		"nameable": "yes"
+		"nameable": "no"
 	},
 	"button": {
 		"nodeName": "button",
 		"nativeRole": "button",
-		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"canvas": {
@@ -1410,7 +1419,7 @@ var objElementRules = {
 		"nodeName": "hgroup",
 		"nativeRole": null,
 		"allowedRoles": "all",
-		"nameable": "no"
+		"nameable": "yes"
 	},
 	"hr": {
 		"nodeName": "hr",
@@ -1451,13 +1460,13 @@ var objElementRules = {
 	"img": {
 		"nodeName": "imgWithAlt",
 		"nativeRole": "img",
-		"allowedRoles": ["button", "checkbox", "doc-cover", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "meter", "option", "progressbar", "radio", "scrollbar", "separator", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["button", "checkbox", "doc-cover", "link", "math", "menuitem", "menuitemcheckbox", "menuitemradio", "meter", "option", "progressbar", "radio", "scrollbar", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"input-button": {
 		"nodeName": "input",
 		"nativeRole": "button",
-		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"input-checkbox": {
@@ -1505,7 +1514,7 @@ var objElementRules = {
 	"input-image": {
 		"nodeName": "input",
 		"nativeRole": "button",
-		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"input-month": {
@@ -1541,7 +1550,7 @@ var objElementRules = {
 	"input-reset": {
 		"nodeName": "input",
 		"nativeRole": "button",
-		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"input-search": {
@@ -1553,7 +1562,7 @@ var objElementRules = {
 	"input-submit": {
 		"nodeName": "input",
 		"nativeRole": "button",
-		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "slider", "switch", "tab", "treeitem"],
+		"allowedRoles": ["checkbox", "combobox", "gridcell", "link", "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio", "separator", "slider", "switch", "tab", "treeitem"],
 		"nameable": "yes"
 	},
 	"input-tel": {
@@ -1608,7 +1617,7 @@ var objElementRules = {
 		"nodeName": "legend",
 		"nativeRole": null,
 		"allowedRoles": [],
-		"nameable": "yes"
+		"nameable": "no"
 	},
 	"li": {
 		"nodeName": "li",
@@ -1762,7 +1771,7 @@ var objElementRules = {
 	},
 	"s": {
 		"nodeName": "s",
-		"nativeRole": null,
+		"nativeRole": "deletion",
 		"allowedRoles": "all",
 		"nameable": "no"
 	},
