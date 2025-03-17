@@ -9,6 +9,8 @@ const injectStyles = (css) => {
 injectStyles(`
     .langSpan{
         color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;outline:orange 2px dashed;margin:0 2px; padding:2px;speak:literal-punctuation;
+        position:absolute
+        z-index:1500;
     }
     .outlineGreen{
         outline:green 2px solid;padding:2px;

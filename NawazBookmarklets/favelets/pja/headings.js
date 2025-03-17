@@ -9,6 +9,7 @@
         `
 .headSpan{
     color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;outline:orange 2px dashed;margin:0 2px; padding:2px;speak:literal-punctuation;
+    z-index:500;
 }
 `,
     );

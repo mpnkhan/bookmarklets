@@ -10,6 +10,7 @@
 		`
 .landmarkSpan{
     color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;margin:0 2px; padding:2px;
+	z-index:500;
 }
 .outlineTemp{
     outline:green 2px solid;padding:2px;
