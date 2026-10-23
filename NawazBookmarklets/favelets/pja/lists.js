@@ -10,6 +10,13 @@
         color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;outline:orange 2px dashed;margin:0 2px; padding:2px;speak:literal-punctuation;
         z-index:500;
     }
+    .listRoleInfo{
+        position:absolute;
+        z-index:2147483646;
+        pointer-events:none;
+        margin:0;
+        white-space:nowrap;
+    }
     .outlineRed{
         outline: red 2px solid;padding:2px;
     }
@@ -60,13 +67,63 @@
 				);
 			});
 
+		const roleBounds = (el) => {
+			const range = document.createRange();
+			range.selectNodeContents(el);
+			const rects = [...range.getClientRects()].filter(
+				(rect) => rect.width || rect.height,
+			);
+			if (rects.length) {
+				return {
+					first: rects[0],
+					last: rects[rects.length - 1],
+				};
+			}
+			const rect = el.getBoundingClientRect();
+			return { first: rect, last: rect };
+		};
+		const placeRoleLabel = (text, x, y, above) => {
+			const label = document.createElement("span");
+			label.className = "listSpan listRoleInfo";
+			label.textContent = text;
+			document.body.appendChild(label);
+			const origin = label.offsetParent;
+			const originStyle = origin ? getComputedStyle(origin) : null;
+			const anchored =
+				origin &&
+				(originStyle.position !== "static" ||
+					originStyle.transform !== "none" ||
+					originStyle.filter !== "none");
+			if (anchored) {
+				const originRect = origin.getBoundingClientRect();
+				label.style.top = `${y - originRect.top}px`;
+				label.style.left = `${x - originRect.left}px`;
+			} else {
+				label.style.top = `${y + window.scrollY}px`;
+				label.style.left = `${x + window.scrollX}px`;
+			}
+			if (above) label.style.top = `${parseFloat(label.style.top) - label.offsetHeight}px`;
+		};
 		document
 			.querySelectorAll("[role=list],[role=listitem]")
-			.forEach(listEl => {
+			.forEach((listEl) => {
 				listFound = true;
-				const roleLabel = `<span class="listSpan">role= "${listEl.getAttribute("role")}"</span>`;
-				listEl.insertAdjacentHTML("afterbegin", roleLabel);
-				listEl.insertAdjacentHTML("beforeend", roleLabel);
+				const role = listEl.getAttribute("role");
+				const box = roleBounds(listEl);
+				if (role === "list") {
+					placeRoleLabel(
+						`role= "${role}"`,
+						box.first.left,
+						box.first.top,
+						true,
+					);
+				} else {
+					placeRoleLabel(
+						`role= "${role}"`,
+						box.last.right,
+						box.last.top,
+					);
+				}
 			});
 
 		if (!listFound)

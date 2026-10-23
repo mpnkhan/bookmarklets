@@ -8,7 +8,8 @@
 	injectStyles(`
     .langSpan{
         color:black;font-weight:bold;font-family:sans-serif;font-size:small;background-color:yellow;outline:orange 2px dashed;margin:0 2px; padding:2px;speak:literal-punctuation;
-        z-index:500;
+        position:relative;
+        z-index:1500;
     }
 `);
 	const divs = document.querySelectorAll(".langSpan");
@@ -18,7 +19,7 @@
 		const newElement = document.createElement("div");
 		newElement.innerHTML =
 			'<strong class="langSpan" id="langInfo" role="status"></strong>';
-		document.body.insertBefore(newElement, document.body.firstElementChild);
+			document.body.insertBefore(newElement, document.body.firstElementChild);
 		if (
 			document.getElementsByTagName("html")[0].getAttribute("xml:lang") &&
 			document.documentElement.lang
@@ -59,7 +60,7 @@
 				langEl.insertAdjacentHTML(
 					"afterend",
 					`
-            <span class="langSpan">lang="${langEl.getAttribute("lang")}"</span>
+            <span class="langSpan" id="langInfo" >lang="${langEl.getAttribute("lang")}"</span>
         `,
 				);
 			});
