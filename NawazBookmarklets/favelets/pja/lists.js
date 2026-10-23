@@ -59,6 +59,16 @@
 					`<strong class="listSpan">&lt;/${listEl.tagName.toLowerCase()}&gt;</strong>`,
 				);
 			});
+
+		document
+			.querySelectorAll("[role=list],[role=listitem]")
+			.forEach(listEl => {
+				listFound = true;
+				const roleLabel = `<span class="listSpan">role= "${listEl.getAttribute("role")}"</span>`;
+				listEl.insertAdjacentHTML("afterbegin", roleLabel);
+				listEl.insertAdjacentHTML("beforeend", roleLabel);
+			});
+
 		if (!listFound)
 			document.getElementById("listInfo").innerHTML +=
 				"No Lists  Found on Page: " + document.title;
